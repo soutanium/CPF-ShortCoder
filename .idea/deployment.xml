@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="FTP" autoUploadExternalChanges="true">
+    <serverData>
+      <paths name="FTP">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/public_html/development/cpf-test-site/wp-content/plugins/CPF Shortcoder" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/.idea" />
+            <excludedPath local="true" path="$PROJECT_DIR$/wp-content/plugins/CPF-Short-Coder/node_modules" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>
