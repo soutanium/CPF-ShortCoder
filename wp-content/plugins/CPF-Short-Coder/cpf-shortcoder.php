@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: CPF Shortcoder
-Author: Sota K.
+Author: Sota Kisuke.
 Description: With this plug-in, you can intuitively display the menu in a place you like.
 Version: 1.0
 */
@@ -10,6 +10,7 @@ class Can_Placement_Free_Shortcoder {
 
 	public function __construct() {
 		add_shortcode( 'cpf_menu', array( $this, 'render_shortcode' ) );
+		add_action( 'admin_menu', array( $this, 'cpf_admin_menu' ) );
 
 		global $pagenow;
 		if ( is_admin() && ( $pagenow == 'nav-menus.php' ) ) {
@@ -107,6 +108,49 @@ class Can_Placement_Free_Shortcoder {
 			plugins_url( "CPF Shortcoder/assets/css/cpf-shortcoder.css", dirname( __FILE__ ) ),
 			array()
 		);
+	}
+
+	/**
+	 *  管理画面にCPF Short Coderのメニューを追加する
+	 */
+
+	function cpf_admin_menu() {
+
+		//ページタイトルと、管理画面の名称設定と国際化
+		add_menu_page(
+			__( 'CPF Short Coder', 'cpf-custom-admin' ),
+			__( 'CPF Short Coder', 'cpf-custom-admin' ),
+			'administrator',
+			'cpf-custom-admin',
+			'cpf_custom_admin'
+		);
+
+		//サブメニューの追加
+		add_submenu_page(
+			'cpf-custom-admin',
+			__( 'Media', 'cpf-custom-admin' ),
+			__( 'Media', 'cpf-custom-admin' ),
+			'administrator',
+			'cpf-submenu',
+			'cpf_submenu'
+		);
+
+	}
+
+	function cpf_custom_admin() {
+		?>
+        <div class="wrap">
+            <h2>CPF Short Coder</h2>
+        </div>
+		<?php
+	}
+
+	function cpf_submenu() {
+		?>
+        <div class="wrap">
+            <h2>Media</h2>
+        </div>
+		<?php
 	}
 }
 
